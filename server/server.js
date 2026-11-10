@@ -134,7 +134,7 @@ app.post('/api/checkout', async (req, res) => {
 
 // 8. Health check and server listener
 app.get('/health', (_, res) => res.send('ok'));
-app.listen(PORT, () => console.log(`API listening on ${PORT}`));
+if (require.main === module) app.listen(PORT, () => console.log(`API listening on ${PORT}`)); // not used on Vercel
 
 // 9. Export app for Vercel serverless deployment support
 module.exports = app;
