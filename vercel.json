@@ -8,8 +8,16 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "destination": "/server/server.js"
+    },
+    {
+      "src": "/health",
+      "destination": "/server/server.js"
+    },
+    {
       "src": "/(.*)",
-      "destination": "server/server.js"
+      "destination": "/$1"
     }
   ]
 }
